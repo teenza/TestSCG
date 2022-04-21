@@ -20,46 +20,14 @@ class NewsViewController:UIViewController,PNewsViewController{
         super.viewDidLoad()
         self.start()
         
-        //let test2 = Test2()
-        //test2.run()
         
-        //let data1:[Int] = [3,5,6]
-        let data1:[Int] = [1,3,5,7,9]
-        //let data1:[Int] = [3,6,8,1,5,10,1,7]
-        var oi = 0
-        var newArr = [Int:Int]()
-        for (index, element) in data1.enumerated(){
-            oi = (oi + element)
-            
-                newArr[oi] = index
-            
-           
-           // print("== \(index) \(element) \(oi)")
-        }
-        //print("== \(newArr)")
-        var oi_r = 0
-        var newArrR = [Int:Int]()
-        for (index, element) in data1.reversed().enumerated(){
-            oi_r = (oi_r + element)
-            let new_index = ((data1.count-1) - index)
-            
-                newArrR[oi_r] = new_index
-            
-            //print("== \((data1.count-1) - index) \(element) \(oi_r)")
-        }
-       // print("== \(newArrR)")
-        
-        var result = 0
-        for (index, element) in newArr{
-            
-            if((newArrR[index]) != nil){
-                //print("== \(newArrR[index]) \(index)")
-                result = newArrR[index] ?? 0
-                print("==\(data1) middle index is \(result)")
-                return
-            }
-        }
-        
+        // for test
+        //test1
+        let test1 = Test1()
+        test1.run()
+        //test2
+        let test2 = Test2()
+        test2.run()
         
     }
 
