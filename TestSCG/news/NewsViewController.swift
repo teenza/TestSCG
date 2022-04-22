@@ -6,6 +6,7 @@ protocol PNewsViewController{
 
     func setNews(_ news:NewsEntity)
     func setError(_ error:String)
+    func gotoDetail(_ data:Article)
 }
 
 class NewsViewController:UIViewController,PNewsViewController{
@@ -43,8 +44,15 @@ class NewsViewController:UIViewController,PNewsViewController{
             self.news = newsdata.articles!
             self.tb?.reloadData()
         }
-       
-       
+    }
+    
+    func gotoDetail(_ detail:Article){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        vc.detailData = detail
+        let navCtrl = UINavigationController(rootViewController: vc)
+        present(navCtrl, animated: true)
     }
     
     func setError(_ error: String) {
@@ -81,17 +89,8 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let article = self.news[indexPath.row]
-        
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
-        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        vc.detailData = article
-        let navCtrl = UINavigationController(rootViewController: vc)
-        present(navCtrl, animated: true)
-         
-       // print(article)
+        newsViewModel.gotoDetail(article)
     }
     
     

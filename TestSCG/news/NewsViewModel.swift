@@ -6,11 +6,12 @@ protocol PNewsViewModel{
     var newsView:PNewsViewController?{ get set}
     
     func getData()
-    
+    func gotoDetail(_ detail:Article)
     
 }
 
 class NewsViewModel:PNewsViewModel{
+
     
     var _apphel = AppHelper()
     var newsView: PNewsViewController?
@@ -28,10 +29,10 @@ class NewsViewModel:PNewsViewModel{
 
     }
     
+    func gotoDetail(_ detail: Article) {
+        self.newsView?.gotoDetail(detail)
+    }
     
-    
-    
-
     
 }
 

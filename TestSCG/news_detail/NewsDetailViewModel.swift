@@ -6,19 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PNewsDetailViewModel{
     var newsDetailView:PNewsDetailViewController?{ get set }
     
     func setDetail(_ data:Article)
+
 }
 
 class NewsDetailViewModel:PNewsDetailViewModel{
     var newsDetailView: PNewsDetailViewController?
     
+    
     func setDetail(_ data: Article) {
         self.newsDetailView?.setDetail(data)
     }
     
+
     
 }
